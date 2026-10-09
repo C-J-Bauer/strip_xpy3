@@ -182,7 +182,7 @@ def main():
     
     
     if args.overwrite_existing_data:
-        ng.bruker.write_pdata(pdata_dir, dic, processed, overwrite=True)
+        ng.bruker.write_pdata(pdata_dir, dic, processed, scale_data=True, overwrite=True)
         save_procno = current_procno
         print(f"Processed data written to existing procno: {save_procno}")
     else:
@@ -202,7 +202,7 @@ def main():
 
         # make sure it works on windows and linux by using pathlib to create the new directory
         pdata_dir = parent / str(save_procno)
-        ng.bruker.write_pdata(pdata_dir, dic, processed, overwrite=True)
+        ng.bruker.write_pdata(pdata_dir, dic, processed, scale_data=True, overwrite=True)
         print(f"Processed data written to new procno: {save_procno}")
         
     # Remove the 2ii from the procno directory to avoid confusion.
