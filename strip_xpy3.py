@@ -10,6 +10,7 @@ from pathlib import Path
 import math
 import sys
 
+VERSION = '1.0.2'
 REFERENCE = 'C. J. Bauer, "STRIP: A processing method to improve peakshapes in spectra acquired from multidimensional phase-modulated NMR experiments," Journal of Magnetic Resonance, vol. 390, Art. no. 108112, 2026, doi: 10.1016/j.jmr.2026.108112.'
 
 try:
@@ -119,6 +120,7 @@ def main():
                         help='Set to True to overwrite existing data, False otherwise')
     parser.add_argument('-w', '--scipy_workers', type=int, default=strip_defaults.SCIPY_WORKERS,
                         help='Number of workers for parallel processing in SciPy (irrelevant if using GPU)')
+    parser.add_argument('-v', '--version',  action='version', version=f'%(prog)s {VERSION} ({REFERENCE})')
     args = parser.parse_args()
 
     try:
